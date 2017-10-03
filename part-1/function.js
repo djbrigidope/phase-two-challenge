@@ -1,7 +1,10 @@
-const month = date => {
-  let d = new Date(date);
+
+function month (date) {
+
+  let d = new Date( date );
   let dateMonth = d.getMonth();
-  const monthArr = [
+// console.log(dateMonth);
+  let monthArr = [
     'Jan',
     'Feb',
     'Mar',
@@ -18,13 +21,8 @@ const month = date => {
   return monthArr[dateMonth];
 
 }
-//
-// console.log(month(2017, 11, 25));
-// console.log(month(1980, 08, 19));
 
-
-
-
+console.log(month( "2017, 8 , 17" ));
 
 
 module.exports = 'month';
