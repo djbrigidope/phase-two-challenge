@@ -11,6 +11,6 @@ describe('month',()=>{
   });
   it('should throw an error if date is not entered in correct format',()=>{
     let date = new Date ('August, 19, 1980');
-    expect(month(date)).to.throw(Error);
+    expect(month.bind(date)).to.throw(Error);
   })
 })
