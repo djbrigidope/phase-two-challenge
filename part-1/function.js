@@ -29,12 +29,16 @@ function month (date) {
 console.log(month( "2017, 8 , 17" ));
 
 
-function reverseSentence(string) {
-console.log('reverse');
-};
+// function reverseSentence (string) {
+//   return string.split(' ').reverse().join(' ');
+// };
+//
+// reverseSentence();
+//
 
-reverseSentence();
+function reverseSentence() {
 
+}
 
 
 module.exports = { month, reverseSentence };
