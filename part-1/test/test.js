@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const month = require('../function.js');
+const { month, reverseSentence } = require('../function.js');
 
 describe('month',()=>{
   it('should be a function',()=>{
@@ -12,5 +12,13 @@ describe('month',()=>{
   it('should throw an error if date is not entered in correct format',()=>{
     let date = new Date ('August, 19, 1980');
     expect(month.bind(date)).to.throw(Error);
+  });
+});
+
+
+describe('reverseSentence',()=>{
+  it('should be a function',()=>{
+    expect(reverseSentence).to.be.a('function');
   })
+
 })

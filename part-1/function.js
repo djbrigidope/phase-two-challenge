@@ -24,13 +24,17 @@ function month (date) {
   } else{
     return monthArr[dateMonth];
   }
-
 }
 
 console.log(month( "2017, 8 , 17" ));
 
 
+function reverseSentence(string) {
+console.log('reverse');
+};
+
+reverseSentence();
 
 
 
-module.exports = month;
+module.exports = { month, reverseSentence };
