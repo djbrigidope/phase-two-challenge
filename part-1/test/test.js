@@ -26,8 +26,8 @@ describe('reverseSentence',()=>{
     expect(reverseSentence(string)).to.equal('there high');
   });
 
-  it('should throw an error if date is not entered in correct format',()=>{
-    let date = new Date ('August, 19, 1980');
-    expect(month.bind(date)).to.throw(Error);
+  it('should throw an error if string is not a string',()=>{
+    let string = 4164743123;
+    expect(reverseSentence.bind(string)).to.throw(Error);
   });
 });
