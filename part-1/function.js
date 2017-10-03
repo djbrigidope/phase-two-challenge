@@ -30,15 +30,17 @@ console.log(month( "2017, 8 , 17" ));
 
 
 function reverseSentence (string) {
-  return string.split(' ').reverse().join(' ');
+    if( typeof string == "string" ){
+    return string.split(' ').reverse().join(' ');
+    } else {
+    throw new Error('please to use "quotes" and sentence w spaces')
+    };
 };
 
 console.log(reverseSentence('there high'));
 
 
-// function reverseSentence() {
-//
-// }
+
 
 
 module.exports = { month, reverseSentence };
