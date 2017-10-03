@@ -18,11 +18,19 @@ function month (date) {
     'Nov',
     'Dec'
   ];
-  return monthArr[dateMonth];
+
+  if( date == 'date in words' || date == undefined){
+    throw new Error('please use "####, ##, ##" format')
+  } else{
+    return monthArr[dateMonth];
+  }
 
 }
 
 console.log(month( "2017, 8 , 17" ));
 
 
-module.exports = 'month';
+
+
+
+module.exports = month;
