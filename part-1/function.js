@@ -57,7 +57,10 @@ function nameProps(obj) {
 
 
 function filterBetween(array,min,max) {
-  return;
+  let filtered = array.filter(function(x){
+    return x > min && x < max;
+  })
+  return filtered;
 }
 
 

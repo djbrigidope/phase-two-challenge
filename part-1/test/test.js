@@ -53,4 +53,14 @@ describe('filterBetween',()=>{
   it('should be a function',()=>{
     expect(filterBetween).to.be.a('function');
   });
-})
+  it('it should take an array or throw an error',()=>{
+    let thugString = 'thugnificent 1337 hax0r';
+    expect(filterBetween.bind(thugString)).to.throw(Error);
+  });
+
+  it('returns a filtered array when given array',()=>{
+    let thugsRus = ['cat toy', 'dog toy', 'rocket toy', 'sewing toy'];
+    expect(filterBetween.bind(thugsRus)).to.be('array');
+  });
+
+});
