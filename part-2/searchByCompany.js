@@ -1,21 +1,21 @@
-const input = process.argv[2];
-const fs = require('fs');
-const clients = fs.readFileSync('./clients.json').toString();
-const clientObj = JSON.parse(clients);
-// console.log(clientObj);
-// console.log(typeof clientObj);
+const input = process.argv[2]
+const fs = require('fs')
+const clientData = fs.readFileSync('./clients.json'.toString())
+const parsedData = JSON.parse(clientData)
+
+
+const companySearch = (company) => {
+  let matchingCompanies = parsedData.filter(obj => obj.company.toLowerCase().startsWith(company.toLowerCase()) === true); // the magic
+
+  let companyResults = matchingCompanies.map(obj => ({
+    "id": obj.id,
+    "company": obj.company,
+    "phone": obj.phone
+  }));
 
 
 
-function companySearch(company) {
-  console.log('lookin fer a client with a company... kinda like...' + company);
+  console.log(companyResults)
+}
 
-  let matchedClient = clientObj.Stringify();
-  // .filter(obj => obj.model.toLowerCase()); //returns an array
-  console.log('===============> :' + matchedClient);
-
-  // let client = matchedClient.map();
-
-};
-
-companySearch()
+companySearch(input)
