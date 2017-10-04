@@ -39,8 +39,26 @@ function reverseSentence (string) {
 
 console.log(reverseSentence('there high'));
 
+let friend = {
+  name: 'Dominique',
+  age: 30,
+  phone: '555-555-5555'
+}
+
+function nameProps(obj) {
+  if(typeof obj !== "object"){
+  throw new Error('gimmie obj blud');
+  }else{
+    return Object.keys(obj);
+  };
+  // let keys = Object.keys(obj);
+  // return keys;
+};
 
 
+function filterBetween(array,min,max) {
+  return;
+}
 
 
-module.exports = { month, reverseSentence };
+module.exports = { month, reverseSentence, nameProps, filterBetween };

@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { month, reverseSentence } = require('../function.js');
+const { month, reverseSentence, nameProps, filterBetween } = require('../function.js');
 
 describe('month',()=>{
   it('should be a function',()=>{
@@ -31,3 +31,26 @@ describe('reverseSentence',()=>{
     expect(reverseSentence.bind(string)).to.throw(Error);
   });
 });
+
+describe('nameProps',()=>{
+  it('should be a function',()=>{
+    expect(nameProps).to.be.a('function');
+  });
+
+   it('returns an array',()=>{
+     let freshWhipz = {acura: "NSX", nissan: "GTR", porsche: 944};
+     expect(nameProps(freshWhipz)).to.be.a('array');
+   });
+
+   it('should throw error if not object',()=>{
+     let freshWhipz = 'acura: "NSX", nissan: "GTR", porsche: 944';
+     expect(nameProps.bind(freshWhipz)).to.throw(Error);
+   });
+});
+
+
+describe('filterBetween',()=>{
+  it('should be a function',()=>{
+    expect(filterBetween).to.be.a('function');
+  });
+})
