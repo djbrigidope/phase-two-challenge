@@ -1,4 +1,4 @@
-# phase-two-challenge
+Â# phase-two-challenge
 This is the challenge for getting into phase 2.
 
 To get started, create a new repository called `phase-2-challenge`. Do all of your work in this repo and submit it as your solution.
