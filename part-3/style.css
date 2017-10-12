@@ -58,7 +58,7 @@ ul {
   font-family: helvetica, arial, sans-serif;
   background-color: grey;
   width: inherit;
-  position: fixed;
+  position: fixed; // allows cnotent to bleed outside of conatiner
 }
 
 a{

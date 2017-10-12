@@ -1,66 +1,72 @@
-const expect = require('chai').expect;
+const assert = require('chai').assert;
 const { month, reverseSentence, nameProps, filterBetween } = require('../function.js');
 
 describe('month',()=>{
-  it('should be a function',()=>{
-    expect(month).to.be.a('function');
-  });
-  it('returns the month when provided a date',()=>{
-    let date = new Date( '1980, 08, 19' )
-    expect( month( date ) ).to.equal( 'Aug' );
-  });
-  it('should throw an error if date is not entered in correct format',()=>{
-    let date = new Date ('August, 19, 1980');
-    expect(month.bind(date)).to.throw(Error);
-  });
+  it('month is a function',()=>{
+    let halloween = new Date(2017, 9, 31)
+    assert.equal(month(halloween), 'Oct')
+  })
+
+  it('throws an error for an invalid input.', function() {
+    assert.throws(function() {
+      month('1')
+    },
+      TypeError, 'plaese to pass date object'
+    )
+  })
+})
+
+
+describe('reverseSentence', function(){
+  it('returns the reverse of the inputteddedd sentence', function(){
+    assert.equal(reverseSentence('there high'), 'high there')
+  })
+
+  it('throws an error for invalid input type', function(){
+    assert.throws(function(){
+      reverseSentence(23637)
+    },
+      Error,'please to use "quotes" and sentence w spaces'
+    )
+    })
+  })
+
+describe('nameProps', function(){
+  it('gets the keys of an object', function(){
+    let cashMoney = {
+      hotBoys: 'juve, lil wayne, bg, turk',
+      bigTymers: 'Baby, mannie fresh',
+      youngMoney: 'drake, nikki minaj, dj khaled'
+    }
+    assert.deepEqual(nameProps(cashMoney), ["hotBoys", "bigTymers", "youngMoney"])
+    // assert.equal(nameProps(cashMoney), ['hotBoys', 'bigTymers', 'youngMoney'])
+  })
+  it('throws an error if the input is not an object or array', function(){
+      let cashMoney2 = "hotBoys: 'juve, lil wayne, bg, turk', bigTymers: 'Baby, mannie fresh', youngMoney: 'drake, nikki minaj, dj khaled'"
+      assert.throws(function(){
+        nameProps(cashMoney2)
+      },
+    Error,'gimmie obj blud'
+  )
+  })
+})
+
+
+describe('filterBetween', function(){
+  it('throws an error if input is not array', function(){
+      let radioBar = 443322
+      assert.throws(function(){
+        filterBetween(radioBar)
+      },
+    Error, 'gimmie array blud'
+  )
 });
 
+  it('returns a filtered array', function(){
 
-describe('reverseSentence',()=>{
-  it('should be a function',()=>{
-    expect(reverseSentence).to.be.a('function');
-  });
+    let arr2 = ['dog', 'cat', 'zebra', 'ape', 'lion', 'cow']
 
-  it('takes a sentence and returns the reverse',()=>{
-    let string = 'high there';
-    expect(reverseSentence(string)).to.equal('there high');
-  });
+    assert.deepEqual(filterBetween(arr2, 'chimp', 'lobster'),[ 'dog', 'lion', 'cow' ])
 
-  it('should throw an error if string is not a string',()=>{
-    let string = 4164743123;
-    expect(reverseSentence.bind(string)).to.throw(Error);
-  });
-});
-
-describe('nameProps',()=>{
-  it('should be a function',()=>{
-    expect(nameProps).to.be.a('function');
-  });
-
-   it('returns an array',()=>{
-     let freshWhipz = {acura: "NSX", nissan: "GTR", porsche: 944};
-     expect(nameProps(freshWhipz)).to.be.a('array');
-   });
-
-   it('should throw error if not object',()=>{
-     let freshWhipz = 'acura: "NSX", nissan: "GTR", porsche: 944';
-     expect(nameProps.bind(freshWhipz)).to.throw(Error);
-   });
-});
-
-
-describe('filterBetween',()=>{
-  it('should be a function',()=>{
-    expect(filterBetween).to.be.a('function');
-  });
-  it('it should take an array or throw an error',()=>{
-    let thugString = 'thugnificent 1337 hax0r';
-    expect(filterBetween.bind(thugString)).to.throw(Error);
-  });
-
-  it('returns a filtered array when given array',()=>{
-    let thugsRus = ['cat toy', 'dog toy', 'rocket toy', 'sewing toy'];
-    expect(filterBetween.bind(thugsRus)).to.be('array');
-  });
-
-});
+  })
+})
