@@ -1,28 +1,24 @@
-const thug = require('./clients.json')
+const plug = require('./clients.json')
+const input = process.argv[2]
 
 const coSurch = function(input){
-  if(input === undefined){
+  if(!input){
     throw new Error("please enter an input agrgument like:\n 'node surchBieCompany.js hi '")
-    process.exit(1);
   } else {
-      const resultArray = []
-      const matchedCo = thug.filter(function(thug){
-      return thug.company.toLowerCase().startsWith(input.toLowerCase());
-      });
+      const matchedCo = plug
+        .filter(function(plug){
+          return plug.company.toLowerCase().startsWith(input.toLowerCase());
+        })
+        .map(function(plug){
+          return {'id': plug.id, 'company': plug.company, 'phone': plug.phone}
+        })
 
-      for (var index = 0; index < matchedCo.length; index++) {
-        const resultObject = {}
-        resultObject.id = matchedCo[index].id
-        resultObject.company = matchedCo[index].company
-        resultObject.phone = matchedCo[index].phone
-        resultArray.push(resultObject)
-      };
-  return resultArray;
-    }
+        return(matchedCo)
+    };
 };
 // where are we passing arguments from ? test of command line ?
 if (require.main === module) {
-  console.log(coSurch(process.argv[2]));
+  console.log(coSurch(input));
 }
 
 module.exports = coSurch;
